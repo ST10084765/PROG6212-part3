@@ -1,0 +1,85 @@
+﻿@page
+@model TimeManagementWebFinal.Pages.Calculation.CalculateModel
+@using System.Globalization;
+@{
+}
+
+<br>
+<h2>Semester Details</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close">X</button>
+    </div>
+
+}
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.mod.Id">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Number of Weeks</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="NumberOfWeeks" value="@Model.NumberOfWeeks">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Start Date (YYYY-MM-DD)</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="StartDate" value="@Model.StartDate">
+        </div>
+    </div>
+
+    <br>
+    <h2>Record Study Hours</h2>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Hours Spent</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="HoursSpent" id="HoursSpent" value="@Model.HoursSpent">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Study Date (YYYY-MM-DD)</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="StudyDate" value="@Model.StudyDate">
+        </div>
+    </div>   
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary col-md-12">Calculate</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary col-md-12" href="/Modules/Index" role="button">Cancel</a>
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row-mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissable fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+   
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Calculated Study Hours</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="HoursSpent" value="@Model.CalculatedStudyHours">
+        </div>
+    </div>
+      
+</form>
+<form method="GET" action="/Modules/Index" onsubmit="return false;">
+    <div class="row mb-3">
+        <div class="offset-md-3 col-sm-6 d-grid">
+            <button type="submit" class="btn btn-outline-primary col-md-12" onclick="location.href='/';">Return Home</button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,35 @@
+﻿@page
+@model TimeManagementWebFinal.Pages.Modules.IndexModel
+@{
+}
+
+
+<br />
+<h2>Module List</h2>
+<a class='btn btn-primary btn-sm' href='/Modules/AddModule'>Add Module</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>ClassHoursPerWeek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listModules)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.Credits</td>
+                <td>@item.ClassHoursPerWeek</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href="/Modules/EditModule?id=@item.Id">Edit</a>
+                    <a class='btn btn-danger btn-sm' href='/Modules/DeleteModule?id=@item.Id'>Delete</a>
+                    <a class='btn btn-secondary btn-sm' href="/Calculation/Calculate?id=@item.Id">Calculate</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

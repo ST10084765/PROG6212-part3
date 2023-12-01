@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Modules\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Modules\AddModule.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Modules\EditModule.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Modules\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Users\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TimeManagementLibrary">
+      <HintPath>..\TimeManagementLibrary\TimeManagementLibrary\bin\Debug\TimeManagementLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Modules\AddModule.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Modules\EditModule.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Users\Login.cshtml" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,64 @@
+﻿@page
+@model TimeManagementWebFinal.Pages.Modules.AddModuleModel
+@{
+}
+
+<br>
+<h2>Add Module</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Code</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Code" value="@Model.mod.Code">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Name" value="@Model.mod.Name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Credits</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Credits" value="@Model.mod.Credits">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">ClassHoursPerWeek</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="ClassHoursPerWeek" value="@Model.mod.ClassHoursPerWeek">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row-mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissable fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary col-md-12" href="/Modules/Index" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

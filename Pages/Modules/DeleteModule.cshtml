@@ -1,0 +1,29 @@
+﻿@page
+@using System.Data.SqlClient;
+@using TimeManagementLibrary;
+@{
+    try
+    {        
+
+        String id = Request.Query["id"];
+
+        String connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TimeManagementDB;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Modules WHERE Id=@id";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+
+                command.ExecuteNonQuery();
+            }
+
+        }
+    }
+    catch (Exception)
+    {
+    }
+
+    Response.Redirect("/Modules/Index");
+}
